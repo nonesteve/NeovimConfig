@@ -1,14 +1,15 @@
 return {
     {
-        "nvim-tree/nvim-tree.lua",
+        "nvim-neo-tree/neo-tree.nvim",
         lazy = true,
-        keys = { {"<leader>e", ":NvimTreeToggle<CR>", desc = "Open Tree"} },
-        init = function()
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
-        end,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        keys = { { "<leader>e", ":Neotree toggle<CR>", desc = "Open Tree" } },
         config = function()
-            require("nvim-tree").setup()
+            require("neo-tree").setup()
         end,
     }
 }
